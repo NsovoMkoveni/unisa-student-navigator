@@ -1,0 +1,574 @@
+{
+  "intents": [
+    {
+      "id": "greeting",
+      "keywords": ["hi", "hello", "hey", "good morning", "good afternoon", "good evening", "howzit", "molo", "sawubona", "greetings", "hi there", "yo"],
+      "response": {
+        "message": "Hello! I'm the UNISA Study Assistant.\nI can help you with logins, applications, registration, fees and contacting the right office.\n\nWhat would you like help with?",
+        "quick_replies": [
+          {"label": "Login & accounts", "value": "login help"},
+          {"label": "Applications", "value": "application help"},
+          {"label": "Registration", "value": "registration help"},
+          {"label": "Fees & funding", "value": "fees help"},
+          {"label": "Contact UNISA", "value": "contact help"}
+        ],
+        "links": []
+      }
+    },
+    {
+      "id": "menu",
+      "keywords": ["menu", "main menu", "start", "start over", "options", "home", "back to menu", "show menu", "topics", "what can you do"],
+      "response": {
+        "message": "Main menu — pick a topic:",
+        "quick_replies": [
+          {"label": "Login & accounts", "value": "login help"},
+          {"label": "Applications", "value": "application help"},
+          {"label": "Registration", "value": "registration help"},
+          {"label": "Fees & funding", "value": "fees help"},
+          {"label": "Contact UNISA", "value": "contact help"},
+          {"label": "Talk to a human", "value": "human"}
+        ],
+        "links": []
+      }
+    },
+    {
+      "id": "help",
+      "keywords": ["help", "what can you do", "how do you work", "capabilities", "assist", "support me", "guide me", "i need help", "can you help", "instructions"],
+      "response": {
+        "message": "Here's what I can do:\n\n• Explain how to claim or reset your myUnisa login\n• Walk you through applications (undergrad, honours, master's/doctoral)\n• Explain document upload rules and required documents\n• Guide you through registration, adding and cancelling modules\n• Explain fees, refunds and NSFAS basics\n• Give you the right UNISA contact details\n\nType 'menu' at any time to start over, or 'human' to reach a person.",
+        "quick_replies": [
+          {"label": "Main menu", "value": "menu"},
+          {"label": "Talk to a human", "value": "human"}
+        ],
+        "links": []
+      }
+    },
+    {
+      "id": "thanks",
+      "keywords": ["thanks", "thank you", "thank u", "thanx", "thx", "appreciate it", "cheers", "much appreciated", "dankie", "enkosi", "ta"],
+      "response": {
+        "message": "You're welcome! Is there anything else I can help you with?",
+        "quick_replies": [
+          {"label": "Main menu", "value": "menu"},
+          {"label": "No, that's all", "value": "goodbye"}
+        ],
+        "links": []
+      }
+    },
+    {
+      "id": "goodbye",
+      "keywords": ["bye", "goodbye", "good bye", "see you", "later", "cheers bye", "exit", "quit", "that's all", "thats all", "im done", "i'm done"],
+      "response": {
+        "message": "Goodbye, and good luck with your studies!\nCome back any time — just type 'hi'.",
+        "quick_replies": [],
+        "links": []
+      }
+    },
+
+    {
+      "id": "login_help",
+      "keywords": ["login", "log in", "logging in", "log-in", "signin", "sign in", "cant login", "can't log in", "myunisa login", "account", "my account", "access myunisa", "unisa login", "portal"],
+      "response": {
+        "message": "Login & accounts. Which one describes you?",
+        "quick_replies": [
+          {"label": "New student — claim login", "value": "claim unisa login"},
+          {"label": "Returning — reset password", "value": "reset password"},
+          {"label": "myLife email issues", "value": "mylife email"},
+          {"label": "Password rules", "value": "password requirements"},
+          {"label": "Invalid credentials error", "value": "invalid credentials"}
+        ],
+        "links": [
+          {"label": "myUnisa portal", "url": "https://my.unisa.ac.za"}
+        ]
+      },
+      "start_flow": "login_flow"
+    },
+    {
+      "id": "login_new_student",
+      "keywords": ["claim unisa login", "claim login", "new student login", "first time login", "create account", "register account", "activate account", "claim my account", "student number login", "new login", "set up login"],
+      "response": {
+        "message": "Claiming your UNISA login (new students):\n\n1. Go to the myUnisa portal.\n2. Choose 'Claim UNISA login'.\n3. Enter your student number and personal details exactly as they appear on your application.\n4. Verify your identity using the code sent to the cellphone number or email on your record.\n5. Create a password that meets UNISA's rules (12+ characters, uppercase, lowercase, number, special character).\n6. Your myLife email is created automatically — allow up to 24 hours for activation.",
+        "quick_replies": [
+          {"label": "Password rules", "value": "password requirements"},
+          {"label": "myLife email help", "value": "mylife email"},
+          {"label": "Main menu", "value": "menu"}
+        ],
+        "links": [
+          {"label": "Claim UNISA login", "url": "https://my.unisa.ac.za"}
+        ]
+      }
+    },
+    {
+      "id": "login_returning_student",
+      "keywords": ["reset password", "forgot password", "forgotten password", "change password", "password reset", "lost password", "returning student login", "cant remember password", "recover account", "new password"],
+      "response": {
+        "message": "Resetting your password (returning students):\n\n1. Go to the myUnisa portal and click 'Forgot password'.\n2. Enter your student number.\n3. Choose to receive the reset code on your registered cellphone or alternative email.\n4. Enter the code and set a new password (12+ characters, uppercase, lowercase, number, special character).\n5. Log in with your student number and the new password.\n\nIf your contact details are out of date, you must update them with UNISA before you can receive the code. [VERIFY WITH UNISA: current details-update channel]",
+        "quick_replies": [
+          {"label": "Password rules", "value": "password requirements"},
+          {"label": "Still can't log in", "value": "invalid credentials"},
+          {"label": "Talk to a human", "value": "human"}
+        ],
+        "links": [
+          {"label": "Reset password", "url": "https://my.unisa.ac.za"}
+        ]
+      }
+    },
+    {
+      "id": "mylife_email",
+      "keywords": ["mylife", "my life email", "student email", "mylife email", "email not working", "email activation", "activate email", "outlook", "office 365", "cant access email", "email address"],
+      "response": {
+        "message": "myLife email:\n\n• Your myLife address is created automatically when you claim your UNISA login.\n• Activation can take up to 24 hours — if it's been less than that, please wait and try again.\n• Sign in at the myLife portal using your full myLife address and your myUnisa password.\n• UNISA sends all official communication to myLife only, so check it regularly.\n\nStill not working after 24 hours? Contact the ICT student support desk.",
+        "quick_replies": [
+          {"label": "Contact ICT support", "value": "contact ict"},
+          {"label": "Password rules", "value": "password requirements"},
+          {"label": "Main menu", "value": "menu"}
+        ],
+        "links": [
+          {"label": "myLife email login", "url": "https://mylife.unisa.ac.za"}
+        ]
+      }
+    },
+    {
+      "id": "password_requirements",
+      "keywords": ["password requirements", "password rules", "password criteria", "password not accepted", "password strength", "valid password", "password format", "password length", "special character", "password policy"],
+      "response": {
+        "message": "Your UNISA password must have:\n\n• At least 12 characters\n• At least one UPPERCASE letter\n• At least one lowercase letter\n• At least one number (0-9)\n• At least one special character (for example ! @ # $ % &)\n\nTip: avoid your student number, your name or your date of birth.",
+        "quick_replies": [
+          {"label": "Reset my password", "value": "reset password"},
+          {"label": "Main menu", "value": "menu"}
+        ],
+        "links": []
+      }
+    },
+    {
+      "id": "login_invalid_credentials",
+      "keywords": ["invalid credentials", "wrong password", "incorrect password", "account locked", "locked out", "login error", "login failed", "cannot sign in", "authentication failed", "access denied", "it says invalid"],
+      "response": {
+        "message": "'Invalid credentials' troubleshooting:\n\n1. Check that you're using your student number (not your ID number or email).\n2. Turn off Caps Lock and retype the password manually instead of pasting it.\n3. Clear your browser cache or try a private/incognito window.\n4. Try a different browser or device.\n5. If you recently reset the password, wait a few minutes and try again.\n6. After several failed attempts your account may be temporarily locked — wait 30 minutes, then reset your password.\n\nIf none of this works, ICT support can unlock the account for you.",
+        "quick_replies": [
+          {"label": "Reset password", "value": "reset password"},
+          {"label": "Contact ICT support", "value": "contact ict"},
+          {"label": "Talk to a human", "value": "human"}
+        ],
+        "links": []
+      }
+    },
+
+    {
+      "id": "application_help",
+      "keywords": ["application", "apply", "applying", "how to apply", "admission", "admissions", "study at unisa", "enrol", "enroll", "application help", "want to study", "join unisa"],
+      "response": {
+        "message": "Applications. What level are you applying for?",
+        "quick_replies": [
+          {"label": "Undergraduate", "value": "undergraduate application"},
+          {"label": "Honours / PG Diploma", "value": "honours application"},
+          {"label": "Master's / Doctoral", "value": "masters application"},
+          {"label": "Required documents", "value": "application documents"},
+          {"label": "Check my status", "value": "application status"}
+        ],
+        "links": [
+          {"label": "Apply at UNISA", "url": "https://www.unisa.ac.za/sites/corporate/default/Apply-for-admission"}
+        ]
+      },
+      "start_flow": "application_flow"
+    },
+    {
+      "id": "application_undergraduate",
+      "keywords": ["undergraduate application", "undergrad", "bachelor", "degree application", "diploma application", "higher certificate", "first year", "matric", "nsc", "undergraduate", "first degree"],
+      "response": {
+        "message": "Undergraduate applications:\n\n• Application period: 17 August – 9 October\n• You need a National Senior Certificate (or equivalent) with the required admission points for your chosen qualification.\n• Apply online — you may list up to two qualification choices, in order of preference. [VERIFY WITH UNISA: number of choices for the current cycle]\n• You will receive a student number and reference for tracking.\n• A non-refundable application fee is payable before your application is processed.\n\nUNISA has a limited number of spaces, so applying early helps.",
+        "quick_replies": [
+          {"label": "Required documents", "value": "application documents"},
+          {"label": "Application fee", "value": "application fee"},
+          {"label": "Upload rules", "value": "upload specifications"}
+        ],
+        "links": [
+          {"label": "Undergraduate qualifications", "url": "https://www.unisa.ac.za/sites/corporate/default/Apply-for-admission/Undergraduate-qualifications"}
+        ]
+      }
+    },
+    {
+      "id": "application_honours",
+      "keywords": ["honours application", "honours", "honors", "postgraduate diploma", "pgdip", "pg diploma", "bhons", "honours degree", "postgrad diploma", "advanced diploma"],
+      "response": {
+        "message": "Honours / Postgraduate Diploma applications:\n\n• Application period: 17 August – 9 October\n• You need a relevant completed bachelor's degree or equivalent qualification.\n• Some qualifications have additional selection criteria and limited spaces. [VERIFY WITH UNISA: per-qualification criteria]\n• Upload your academic record and degree certificate if you did not study at UNISA.\n• A non-refundable application fee applies.",
+        "quick_replies": [
+          {"label": "Required documents", "value": "application documents"},
+          {"label": "Foreign qualifications", "value": "foreign qualifications"},
+          {"label": "Application fee", "value": "application fee"}
+        ],
+        "links": [
+          {"label": "Postgraduate qualifications", "url": "https://www.unisa.ac.za/sites/corporate/default/Apply-for-admission/Master's-&-doctoral-degrees"}
+        ]
+      }
+    },
+    {
+      "id": "application_masters_doctoral",
+      "keywords": ["masters application", "master's", "masters", "doctoral", "doctorate", "phd", "dphil", "research degree", "mtech", "dtech", "supervisor", "thesis", "dissertation"],
+      "response": {
+        "message": "Master's & Doctoral applications:\n\n• Application period: 1 September – 20 November\n• You need a relevant completed honours degree (master's) or master's degree (doctoral).\n• For research degrees you must submit a research proposal and, where required, secure a supervisor in the relevant department before or during application.\n• Contact the academic department directly to discuss your research topic and supervision capacity. [VERIFY WITH UNISA: department contact list]\n• A non-refundable application fee applies.",
+        "quick_replies": [
+          {"label": "Required documents", "value": "application documents"},
+          {"label": "Foreign qualifications", "value": "foreign qualifications"},
+          {"label": "Talk to a human", "value": "human"}
+        ],
+        "links": [
+          {"label": "Master's & doctoral admission", "url": "https://www.unisa.ac.za/sites/corporate/default/Apply-for-admission/Master's-&-doctoral-degrees"}
+        ]
+      }
+    },
+    {
+      "id": "application_documents",
+      "keywords": ["application documents", "required documents", "documents needed", "certified copies", "what documents", "supporting documents", "id copy", "transcript", "academic record", "certificates", "translations", "paperwork"],
+      "response": {
+        "message": "Documents you normally need to upload:\n\n• Certified copy of your South African ID, or passport (non-SA applicants)\n• Certified copy of your National Senior Certificate / school-leaving certificate\n• Certified copies of any tertiary qualifications and full academic records\n• Marriage certificate or affidavit if your surname differs from your documents\n• Sworn translations into English for any document in another language\n• SAQA evaluation certificate for foreign qualifications\n\nCertification must generally be recent. [VERIFY WITH UNISA: certification validity period for the current cycle]",
+        "quick_replies": [
+          {"label": "Upload rules", "value": "upload specifications"},
+          {"label": "Foreign qualifications", "value": "foreign qualifications"},
+          {"label": "Main menu", "value": "menu"}
+        ],
+        "links": []
+      },
+      "start_flow": "document_upload_flow"
+    },
+    {
+      "id": "application_upload_specs",
+      "keywords": ["upload specifications", "upload", "file size", "file too large", "2mb", "pdf", "file format", "cant upload", "upload failed", "scan documents", "document size", "attachment"],
+      "response": {
+        "message": "Document upload rules:\n\n• Maximum 2MB per file\n• Accepted formats: PDF, DOC, TIF only\n• Upload one file per document (do not combine several documents into one file)\n• Give each file a clear name, e.g. 'ID_copy.pdf'\n\nFile too big? Scan in black and white at a lower resolution (200 dpi is usually enough), or save as PDF instead of an image.",
+        "quick_replies": [
+          {"label": "Which documents?", "value": "application documents"},
+          {"label": "Talk to a human", "value": "human"}
+        ],
+        "links": []
+      }
+    },
+    {
+      "id": "application_fee",
+      "keywords": ["application fee", "how much to apply", "pay application", "application payment", "cost to apply", "application cost", "non refundable fee", "proof of payment", "pay to apply", "banking details"],
+      "response": {
+        "message": "Application fee:\n\n• A non-refundable application fee is payable for every application.\n• Pay using your student number as the reference — payments without the correct reference cannot be matched.\n• Accepted methods: electronic funds transfer, direct bank deposit, and online card payment via myUnisa. [VERIFY WITH UNISA: current amount and banking details]\n• Your application is only processed once the fee reflects, which can take a few working days.\n• Keep your proof of payment until your application status changes.",
+        "quick_replies": [
+          {"label": "Check application status", "value": "application status"},
+          {"label": "Payment methods", "value": "payment methods"},
+          {"label": "Contact fees office", "value": "contact fees"}
+        ],
+        "links": []
+      }
+    },
+    {
+      "id": "application_status",
+      "keywords": ["application status", "check status", "track application", "have i been accepted", "outcome", "admission status", "did i get in", "still waiting", "no response", "application result", "pending"],
+      "response": {
+        "message": "Checking your application status:\n\n1. Log in to myUnisa with your student number.\n2. Open the 'Application' or 'Student admin' section.\n3. Your status shows as submitted, under assessment, provisionally accepted, or unsuccessful.\n\nUNISA also sends outcome notices to your myLife email and by SMS, so check both. Outcomes are released after the application period closes, so a 'submitted' status is normal until then.",
+        "quick_replies": [
+          {"label": "myLife email help", "value": "mylife email"},
+          {"label": "Contact admissions", "value": "contact admissions"},
+          {"label": "Main menu", "value": "menu"}
+        ],
+        "links": [
+          {"label": "myUnisa portal", "url": "https://my.unisa.ac.za"}
+        ]
+      }
+    },
+    {
+      "id": "foreign_qualifications",
+      "keywords": ["foreign qualifications", "saqa", "international qualification", "studied abroad", "foreign degree", "overseas qualification", "evaluate qualification", "non south african", "foreign matric", "equivalence"],
+      "response": {
+        "message": "Foreign qualifications:\n\n• Qualifications obtained outside South Africa must be evaluated by SAQA (South African Qualifications Authority).\n• Apply to SAQA for a Certificate of Evaluation and upload it with your UNISA application.\n• SAQA evaluation takes time and costs a separate fee, so start early. [VERIFY WITH UNISA/SAQA: current turnaround and fee]\n• Documents not in English need a sworn translation.\n• Non-SA applicants also need a valid passport and, once registered, may need a study visa.",
+        "quick_replies": [
+          {"label": "Required documents", "value": "application documents"},
+          {"label": "Contact admissions", "value": "contact admissions"}
+        ],
+        "links": [
+          {"label": "SAQA evaluation", "url": "https://www.saqa.org.za"}
+        ]
+      }
+    },
+
+    {
+      "id": "registration_help",
+      "keywords": ["registration", "register", "registering", "how to register", "registration help", "sign up for modules", "enrol modules", "registration period", "register for semester", "start studying"],
+      "response": {
+        "message": "Registration. What do you need?",
+        "quick_replies": [
+          {"label": "How to register", "value": "registration steps"},
+          {"label": "Add a module", "value": "add module"},
+          {"label": "Cancel a module", "value": "cancel module"},
+          {"label": "Prerequisites", "value": "prerequisites"},
+          {"label": "Re-registration", "value": "re registration"}
+        ],
+        "links": []
+      },
+      "start_flow": "registration_flow"
+    },
+    {
+      "id": "registration_steps",
+      "keywords": ["registration steps", "how to register", "registration process", "complete registration", "register online", "registration guide", "steps to register", "finalise registration", "registration form", "curriculum"],
+      "response": {
+        "message": "Registering on myUnisa:\n\n1. Log in to myUnisa with your student number and password.\n2. Open 'Register' and accept the student rules and declaration.\n3. Confirm and update your personal and contact details.\n4. Choose your qualification and then your modules for the semester or year.\n5. Check prerequisites and the maximum number of credits allowed.\n6. Review the fee quotation shown before you submit.\n7. Submit, then pay at least the minimum initial payment — your registration is only activated once payment reflects.\n8. Save or print your proof of registration.",
+        "quick_replies": [
+          {"label": "Prerequisites", "value": "prerequisites"},
+          {"label": "Payment methods", "value": "payment methods"},
+          {"label": "Main menu", "value": "menu"}
+        ],
+        "links": [
+          {"label": "Register on myUnisa", "url": "https://my.unisa.ac.za"}
+        ]
+      }
+    },
+    {
+      "id": "add_module",
+      "keywords": ["add module", "add a subject", "add subject", "extra module", "more modules", "additional module", "change modules", "amend registration", "add course", "increase modules"],
+      "response": {
+        "message": "Adding a module:\n\n1. Log in to myUnisa and open 'Register'.\n2. Choose 'Amend registration' / 'Add modules'.\n3. Select the additional module and check that it has no unmet prerequisites and that you stay within your credit limit.\n4. Submit — a new fee quotation is generated.\n5. Pay the additional fee so the added module is activated.\n\nYou can only add modules while the registration period for that semester is still open. [VERIFY WITH UNISA: current registration period dates]",
+        "quick_replies": [
+          {"label": "Prerequisites", "value": "prerequisites"},
+          {"label": "Cancel a module", "value": "cancel module"},
+          {"label": "Talk to a human", "value": "human"}
+        ],
+        "links": []
+      }
+    },
+    {
+      "id": "cancel_module",
+      "keywords": ["cancel module", "drop module", "drop a subject", "remove module", "cancel subject", "deregister", "withdraw module", "cancel registration", "drop course", "quit module"],
+      "response": {
+        "message": "Cancelling a module:\n\n1. Log in to myUnisa and open 'Register' / 'Amend registration'.\n2. Select 'Cancel modules' and choose the module.\n3. Submit and keep the confirmation.\n\nRefunds depend on timing:\n• Cancel within the 10 calendar-day cooling-off period from activation of your registration and you qualify for a full refund of that module's fee.\n• After that, cancellation fees apply on a sliding scale and you may remain liable for the full amount. [VERIFY WITH UNISA: current cancellation fee scale]",
+        "quick_replies": [
+          {"label": "Cooling-off period", "value": "cooling off period"},
+          {"label": "Refund policy", "value": "refund policy"},
+          {"label": "Contact fees office", "value": "contact fees"}
+        ],
+        "links": []
+      }
+    },
+    {
+      "id": "cooling_off_period",
+      "keywords": ["cooling off period", "cooling-off", "10 days", "ten days", "full refund period", "cancel for refund", "grace period", "change my mind", "cooling off", "refund window"],
+      "response": {
+        "message": "Cooling-off period:\n\n• You have 10 calendar days from the date your registration is activated to cancel and receive a full refund of the fees paid for the cancelled modules.\n• The 10 days are calendar days, not working days — weekends and public holidays count.\n• Cancel through myUnisa and keep the confirmation as proof.\n• After the 10 days, normal cancellation fees apply.",
+        "quick_replies": [
+          {"label": "Cancel a module", "value": "cancel module"},
+          {"label": "Refund policy", "value": "refund policy"}
+        ],
+        "links": []
+      }
+    },
+    {
+      "id": "prerequisites_corequisites",
+      "keywords": ["prerequisites", "pre requisite", "prerequisite", "corequisite", "co-requisite", "module requirements", "cant register module", "module blocked", "required module first", "pre-requisites", "module rules"],
+      "response": {
+        "message": "Prerequisites & co-requisites:\n\n• A prerequisite is a module you must have passed before you may register for another module.\n• A co-requisite is a module you must register for at the same time as another module.\n• If myUnisa blocks a module, an unmet prerequisite is the most common reason.\n\nHow to check: open the qualification in the UNISA online calendar, find the module code, and read the 'prerequisite' and 'co-requisite' notes listed under it.",
+        "quick_replies": [
+          {"label": "How to register", "value": "registration steps"},
+          {"label": "Talk to a human", "value": "human"}
+        ],
+        "links": [
+          {"label": "UNISA calendars", "url": "https://www.unisa.ac.za/sites/corporate/default/Register-to-study-through-Unisa/Undergraduate-&-honours-qualifications"}
+        ]
+      }
+    },
+    {
+      "id": "re_registration",
+      "keywords": ["re registration", "re-register", "reregister", "returning student registration", "next year registration", "continue studies", "renew registration", "second year", "annual registration", "carry on studying"],
+      "response": {
+        "message": "Re-registration:\n\n• You do not re-apply. Returning students simply register again for each new academic year or semester.\n• Log in to myUnisa during the registration period and follow the normal registration steps.\n• You must have no outstanding account balance from previous periods, otherwise registration is blocked.\n• Academic exclusion rules apply if you have not passed the minimum required modules. [VERIFY WITH UNISA: current academic progression rules]",
+        "quick_replies": [
+          {"label": "How to register", "value": "registration steps"},
+          {"label": "Fees & funding", "value": "fees help"}
+        ],
+        "links": []
+      }
+    },
+
+    {
+      "id": "fees_help",
+      "keywords": ["fees", "fee", "money", "cost", "tuition", "how much", "payment", "funding", "fees help", "study cost", "price", "account balance"],
+      "response": {
+        "message": "Fees & funding. What do you need?",
+        "quick_replies": [
+          {"label": "Payment methods", "value": "payment methods"},
+          {"label": "Refund policy", "value": "refund policy"},
+          {"label": "NSFAS funding", "value": "nsfas"},
+          {"label": "Payment problem", "value": "fee errors"},
+          {"label": "Contact fees office", "value": "contact fees"}
+        ],
+        "links": [
+          {"label": "Student fees", "url": "https://www.unisa.ac.za/sites/corporate/default/Apply-for-admission/Fees-&-funding"}
+        ]
+      }
+    },
+    {
+      "id": "fee_payment_methods",
+      "keywords": ["payment methods", "how to pay", "pay fees", "eft", "bank deposit", "card payment", "pay online", "payment options", "where to pay", "banking", "pay unisa"],
+      "response": {
+        "message": "How to pay UNISA:\n\n• Electronic funds transfer (EFT) to the official UNISA bank account\n• Direct deposit at the bank\n• Online card payment through myUnisa\n• Approved bursary or employer payment arranged with the bursary office\n\nAlways use your 8-digit student number as the payment reference, and select the correct beneficiary/deposit code so the money is allocated to your student account. Payments can take 2–3 working days to reflect. [VERIFY WITH UNISA: current banking details and deposit codes]",
+        "quick_replies": [
+          {"label": "Payment problem", "value": "fee errors"},
+          {"label": "Contact fees office", "value": "contact fees"}
+        ],
+        "links": []
+      }
+    },
+    {
+      "id": "refund_policy",
+      "keywords": ["refund", "refund policy", "get money back", "money back", "overpayment", "credit balance", "claim refund", "reimbursement", "refund request", "paid too much"],
+      "response": {
+        "message": "Refunds:\n\n• Cancel within the 10 calendar-day cooling-off period and you get a full refund of the cancelled modules' fees.\n• After that, a sliding cancellation fee is deducted.\n• Credit balances (for example an overpayment or a bursary paying after you did) can be refunded on request.\n• Submit a refund request with your student number and proof of banking details in your own name.\n• Refunds are paid by EFT only and take several working days. [VERIFY WITH UNISA: current refund request channel and turnaround]",
+        "quick_replies": [
+          {"label": "Cooling-off period", "value": "cooling off period"},
+          {"label": "Contact fees office", "value": "contact fees"}
+        ],
+        "links": []
+      }
+    },
+    {
+      "id": "nsfas_info",
+      "keywords": ["nsfas", "bursary", "funding application", "financial aid", "student loan", "sponsor", "free education", "nsfas application", "funding help", "cant afford"],
+      "response": {
+        "message": "NSFAS funding basics:\n\n• NSFAS funds South African citizens studying an approved qualification who meet the household income threshold.\n• You apply directly to NSFAS on the myNSFAS portal, not through UNISA.\n• Applications open and close on NSFAS's own dates, separate from UNISA's application dates. [VERIFY WITH NSFAS: current application window and income threshold]\n• You need your ID, your parents'/guardians' IDs and proof of household income.\n• Track your funding decision on myNSFAS; UNISA is notified once you are confirmed as funded.\n• UNISA also offers other bursaries — check the funding pages.",
+        "quick_replies": [
+          {"label": "Fees & funding", "value": "fees help"},
+          {"label": "Contact fees office", "value": "contact fees"}
+        ],
+        "links": [
+          {"label": "myNSFAS portal", "url": "https://www.nsfas.org.za"},
+          {"label": "UNISA fees & funding", "url": "https://www.unisa.ac.za/sites/corporate/default/Apply-for-admission/Fees-&-funding"}
+        ]
+      }
+    },
+    {
+      "id": "fee_errors",
+      "keywords": ["fee errors", "payment not reflecting", "payment problem", "payment failed", "wrong amount", "money not showing", "paid but", "statement wrong", "account incorrect", "double charged", "billing error"],
+      "response": {
+        "message": "Common payment problems:\n\n• Payment not reflecting — allow 2–3 working days; if the reference was wrong, send proof of payment to the fees office so it can be reallocated.\n• Wrong reference used — email proof of payment with your student number clearly stated.\n• Online card payment declined — check your daily online limit with your bank, then retry, or use EFT instead.\n• Amount looks wrong — download your statement on myUnisa and compare it with your registration quotation before querying.\n• Bursary not reflecting — confirm your funder has sent confirmation to UNISA.",
+        "quick_replies": [
+          {"label": "Payment methods", "value": "payment methods"},
+          {"label": "Contact fees office", "value": "contact fees"},
+          {"label": "Talk to a human", "value": "human"}
+        ],
+        "links": []
+      }
+    },
+
+    {
+      "id": "contact_help",
+      "keywords": ["contact", "contact help", "phone number", "email address", "call unisa", "get in touch", "reach unisa", "contact details", "who do i call", "speak to someone", "office"],
+      "response": {
+        "message": "Which department do you need?",
+        "quick_replies": [
+          {"label": "Admissions", "value": "contact admissions"},
+          {"label": "Fees / student accounts", "value": "contact fees"},
+          {"label": "ICT / technical support", "value": "contact ict"},
+          {"label": "Regional offices", "value": "contact regional offices"},
+          {"label": "Student representatives", "value": "contact nsrc"}
+        ],
+        "links": [
+          {"label": "UNISA contact us", "url": "https://www.unisa.ac.za/sites/corporate/default/Contact-us"}
+        ]
+      },
+      "start_flow": "contact_flow"
+    },
+    {
+      "id": "contact_admissions",
+      "keywords": ["contact admissions", "admissions office", "application office", "admission enquiry", "who handles applications", "study enquiry", "admissions email", "admission contact", "applications department", "student admin"],
+      "response": {
+        "message": "Admissions & applications:\n\n• Toll-free (South Africa): 0800 00 1870\n• WhatsApp: +27 12 431 2500\n• Email: study-info@unisa.ac.za [VERIFY WITH UNISA]\n\nAlways include your student number, ID number and full name in any email.",
+        "quick_replies": [
+          {"label": "Application status", "value": "application status"},
+          {"label": "Other contacts", "value": "contact help"}
+        ],
+        "links": [
+          {"label": "UNISA contact us", "url": "https://www.unisa.ac.za/sites/corporate/default/Contact-us"}
+        ]
+      }
+    },
+    {
+      "id": "contact_fees",
+      "keywords": ["contact fees", "fees office", "student accounts", "finance department", "fees email", "accounts department", "who handles fees", "finance contact", "billing contact", "fees enquiry"],
+      "response": {
+        "message": "Fees & student accounts:\n\n• Toll-free (South Africa): 0800 00 1870\n• WhatsApp: +27 12 431 2500\n• Email: finan@unisa.ac.za [VERIFY WITH UNISA]\n\nAttach your proof of payment and quote your student number as the reference.",
+        "quick_replies": [
+          {"label": "Payment problem", "value": "fee errors"},
+          {"label": "Other contacts", "value": "contact help"}
+        ],
+        "links": [
+          {"label": "UNISA contact us", "url": "https://www.unisa.ac.za/sites/corporate/default/Contact-us"}
+        ]
+      }
+    },
+    {
+      "id": "contact_ict",
+      "keywords": ["contact ict", "ict support", "technical support", "it help", "it support", "system down", "myunisa not working", "website down", "technical problem", "helpdesk", "tech support"],
+      "response": {
+        "message": "ICT / technical support (myUnisa & myLife):\n\n• Toll-free (South Africa): 0800 00 1870\n• Email: myUnisaHelp@unisa.ac.za [VERIFY WITH UNISA]\n• myLife email issues: myLifeHelp@unisa.ac.za [VERIFY WITH UNISA]\n\nInclude your student number, the exact error message and a screenshot.",
+        "quick_replies": [
+          {"label": "Login troubleshooting", "value": "invalid credentials"},
+          {"label": "Other contacts", "value": "contact help"}
+        ],
+        "links": []
+      }
+    },
+    {
+      "id": "contact_regional_offices",
+      "keywords": ["contact regional offices", "regional office", "campus", "nearest office", "walk in", "visit unisa", "branch", "florida campus", "durban office", "cape town office", "office near me", "in person"],
+      "response": {
+        "message": "Regional offices:\n\nUNISA has regional offices and learning centres across South Africa, including Gauteng, Western Cape, KwaZulu-Natal, Eastern Cape, Free State, Limpopo, Mpumalanga, North West and the Northern Cape, plus an Ethiopia centre.\n\nUse the regional office locator to find the address, phone number and walking-in hours nearest to you. Take your ID and student number with you. [VERIFY WITH UNISA: current opening hours and walk-in rules]",
+        "quick_replies": [
+          {"label": "Other contacts", "value": "contact help"},
+          {"label": "Main menu", "value": "menu"}
+        ],
+        "links": [
+          {"label": "Find a regional office", "url": "https://www.unisa.ac.za/sites/corporate/default/Contact-us/Regional-offices"}
+        ]
+      }
+    },
+    {
+      "id": "contact_nsrc",
+      "keywords": ["contact nsrc", "nsrc", "src", "student representative", "student council", "student body", "student representative council", "student leaders", "student union", "srcs"],
+      "response": {
+        "message": "Student representatives (NSRC / SRC):\n\nThe National Student Representative Council and regional SRCs represent students on academic and administrative matters, and can help escalate unresolved issues.\n\n• Contact your regional SRC through your regional office\n• Email: [VERIFY WITH UNISA: current NSRC email address]\n\nFor urgent academic or financial problems, still log a formal query with the relevant department as well.",
+        "quick_replies": [
+          {"label": "Regional offices", "value": "contact regional offices"},
+          {"label": "Other contacts", "value": "contact help"}
+        ],
+        "links": [
+          {"label": "Student life at UNISA", "url": "https://www.unisa.ac.za/sites/students/default/Student-life"}
+        ]
+      }
+    },
+    {
+      "id": "human_escalation",
+      "keywords": ["human", "agent", "real person", "speak to a human", "talk to a person", "operator", "consultant", "live agent", "customer service", "call centre", "call center", "escalate", "complaint"],
+      "response": {
+        "message": "Here's how to reach a real person at UNISA:\n\n• Toll-free (South Africa): 0800 00 1870\n• WhatsApp: +27 12 431 2500\n• Admissions: study-info@unisa.ac.za [VERIFY WITH UNISA]\n• Fees / student accounts: finan@unisa.ac.za [VERIFY WITH UNISA]\n• myUnisa technical: myUnisaHelp@unisa.ac.za [VERIFY WITH UNISA]\n\nAlways quote your student number and ID number.",
+        "quick_replies": [
+          {"label": "Find a regional office", "value": "contact regional offices"},
+          {"label": "Main menu", "value": "menu"}
+        ],
+        "links": [
+          {"label": "UNISA contact us", "url": "https://www.unisa.ac.za/sites/corporate/default/Contact-us"},
+          {"label": "Regional office locator", "url": "https://www.unisa.ac.za/sites/corporate/default/Contact-us/Regional-offices"}
+        ]
+      }
+    }
+  ],
+
+  "synonyms": {
+    "login": ["log in", "logon", "log on", "signin", "sign in", "logging in", "sign-in", "log-in"],
+    "password": ["pass word", "pwd", "passcode"],
+    "application": ["applying", "apply", "aplication", "applicaton"],
+    "registration": ["registering", "register", "registraton", "regestration"],
+    "fees": ["fee", "fees", "payment", "money"],
+    "cancel": ["drop", "remove", "withdraw", "deregister"],
+    "document": ["documents", "docs", "paperwork", "certificate", "certificates"],
+    "human": ["agent", "person", "consultant", "operator"],
+    "undergraduate": ["undergrad", "bachelors", "bachelor"],
+    "masters": ["master's", "msc", "ma", "mcom"],
+    "doctoral": ["phd", "doctorate", "dphil"],
+    "email": ["e-mail", "mail", "inbox"],
+    "myunisa": ["my unisa", "unisa portal", "portal"],
+    "mylife": ["my life", "student email"]
+  }
+}
