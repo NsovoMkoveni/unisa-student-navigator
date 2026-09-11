@@ -1,0 +1,57 @@
+{
+  "fallback": {
+    "message": "I'm not sure I understood that. Here's what I can help with:\n\n• Login & accounts\n• Applications\n• Registration\n• Fees & funding\n• Contacting UNISA\n\nType 'human' to contact support.",
+    "quick_replies": [
+      {"label": "Login & accounts", "value": "login help"},
+      {"label": "Applications", "value": "application help"},
+      {"label": "Registration", "value": "registration help"},
+      {"label": "Fees & funding", "value": "fees help"},
+      {"label": "Contact UNISA", "value": "contact help"},
+      {"label": "Talk to a human", "value": "human"}
+    ],
+    "links": []
+  },
+  "empty_input": {
+    "message": "I didn't catch that — please type a question, or pick one of the options below.",
+    "quick_replies": [
+      {"label": "Main menu", "value": "menu"},
+      {"label": "Talk to a human", "value": "human"}
+    ],
+    "links": []
+  },
+  "too_long": {
+    "message": "That message is a bit long for me. Please ask one short question at a time, for example 'how do I reset my password'.",
+    "quick_replies": [
+      {"label": "Main menu", "value": "menu"},
+      {"label": "Talk to a human", "value": "human"}
+    ],
+    "links": []
+  },
+  "error": {
+    "message": "Something went wrong on my side. Please try again, or contact UNISA directly on 0800 00 1870.",
+    "quick_replies": [
+      {"label": "Main menu", "value": "menu"},
+      {"label": "Talk to a human", "value": "human"}
+    ],
+    "links": [
+      {"label": "UNISA contact us", "url": "https://www.unisa.ac.za/sites/corporate/default/Contact-us"}
+    ]
+  },
+  "human_escalation": {
+    "message": "Here's how to reach a real person at UNISA:\n\n• Toll-free (South Africa): 0800 00 1870\n• WhatsApp: +27 12 431 2500\n• Admissions: study-info@unisa.ac.za [VERIFY WITH UNISA]\n• Fees / student accounts: finan@unisa.ac.za [VERIFY WITH UNISA]\n• myUnisa technical support: myUnisaHelp@unisa.ac.za [VERIFY WITH UNISA]\n\nAlways quote your student number and ID number.",
+    "quick_replies": [
+      {"label": "Main menu", "value": "menu"}
+    ],
+    "links": [
+      {"label": "UNISA contact us", "url": "https://www.unisa.ac.za/sites/corporate/default/Contact-us"},
+      {"label": "Regional office locator", "url": "https://www.unisa.ac.za/sites/corporate/default/Contact-us/Regional-offices"}
+    ]
+  },
+  "feedback_thanks": {
+    "message": "Thanks for the feedback — it helps improve this assistant.",
+    "quick_replies": [
+      {"label": "Main menu", "value": "menu"}
+    ],
+    "links": []
+  }
+}

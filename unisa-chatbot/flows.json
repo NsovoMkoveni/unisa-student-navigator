@@ -1,0 +1,471 @@
+{
+  "flows": {
+    "login_flow": {
+      "start": "login_start",
+      "steps": {
+        "login_start": {
+          "id": "login_start",
+          "message": "Let's sort out your login. Are you a new student or a returning student?",
+          "quick_replies": [
+            {"label": "1. New student", "value": "1"},
+            {"label": "2. Returning student", "value": "2"},
+            {"label": "3. myLife email problem", "value": "3"}
+          ],
+          "next": {
+            "1": "login_new",
+            "2": "login_returning",
+            "3": "login_mylife"
+          },
+          "links": []
+        },
+        "login_new": {
+          "id": "login_new",
+          "message": "New students claim a UNISA login:\n\n1. Open the myUnisa portal.\n2. Click 'Claim UNISA login'.\n3. Enter your student number and personal details exactly as on your application.\n4. Verify with the code sent to your registered cellphone or email.\n5. Create a password: 12+ characters with uppercase, lowercase, a number and a special character.\n\nDid that work?",
+          "quick_replies": [
+            {"label": "1. Yes, I'm in", "value": "1"},
+            {"label": "2. No, it failed", "value": "2"}
+          ],
+          "next": {
+            "1": "login_done",
+            "2": "login_trouble"
+          },
+          "links": [
+            {"label": "myUnisa portal", "url": "https://my.unisa.ac.za"}
+          ]
+        },
+        "login_returning": {
+          "id": "login_returning",
+          "message": "Returning students reset the password:\n\n1. Open myUnisa and click 'Forgot password'.\n2. Enter your student number.\n3. Choose to receive the code by SMS or alternative email.\n4. Enter the code and set a new password (12+ characters, uppercase, lowercase, number, special character).\n\nDid that work?",
+          "quick_replies": [
+            {"label": "1. Yes, I'm in", "value": "1"},
+            {"label": "2. No, it failed", "value": "2"}
+          ],
+          "next": {
+            "1": "login_done",
+            "2": "login_trouble"
+          },
+          "links": [
+            {"label": "Reset password", "url": "https://my.unisa.ac.za"}
+          ]
+        },
+        "login_mylife": {
+          "id": "login_mylife",
+          "message": "myLife email:\n\n• Activation takes up to 24 hours after you claim your UNISA login.\n• Sign in with your full myLife address and your myUnisa password.\n• All official UNISA communication goes to myLife only.\n\nHas it been more than 24 hours?",
+          "quick_replies": [
+            {"label": "1. Yes, more than 24 hours", "value": "1"},
+            {"label": "2. No, less than 24 hours", "value": "2"}
+          ],
+          "next": {
+            "1": "login_trouble",
+            "2": "login_wait"
+          },
+          "links": [
+            {"label": "myLife email login", "url": "https://mylife.unisa.ac.za"}
+          ]
+        },
+        "login_wait": {
+          "id": "login_wait",
+          "message": "Please give it the full 24 hours from the moment you claimed your login, then try signing in again. If it still fails after that, come back and choose 'myLife email problem' again.",
+          "quick_replies": [
+            {"label": "Main menu", "value": "menu"}
+          ],
+          "next": {},
+          "links": [],
+          "end": true
+        },
+        "login_trouble": {
+          "id": "login_trouble",
+          "message": "Let's troubleshoot:\n\n1. Use your student number, not your ID or email.\n2. Turn off Caps Lock and type the password manually.\n3. Clear the cache or use a private/incognito window.\n4. Try another browser or device.\n5. After several failed attempts the account locks for about 30 minutes.\n\nIf it still fails, ICT support can unlock your account:\n• Toll-free 0800 00 1870\n• myUnisaHelp@unisa.ac.za [VERIFY WITH UNISA]",
+          "quick_replies": [
+            {"label": "Talk to a human", "value": "human"},
+            {"label": "Main menu", "value": "menu"}
+          ],
+          "next": {},
+          "links": [],
+          "end": true
+        },
+        "login_done": {
+          "id": "login_done",
+          "message": "Great — you're sorted. Remember to check your myLife email regularly, since UNISA sends all official notices there.",
+          "quick_replies": [
+            {"label": "Main menu", "value": "menu"}
+          ],
+          "next": {},
+          "links": [],
+          "end": true
+        }
+      }
+    },
+
+    "application_flow": {
+      "start": "app_start",
+      "steps": {
+        "app_start": {
+          "id": "app_start",
+          "message": "Which qualification level are you applying for?",
+          "quick_replies": [
+            {"label": "1. Undergraduate", "value": "1"},
+            {"label": "2. Honours / PG Diploma", "value": "2"},
+            {"label": "3. Master's / Doctoral", "value": "3"}
+          ],
+          "next": {
+            "1": "app_undergrad",
+            "2": "app_honours",
+            "3": "app_masters"
+          },
+          "links": []
+        },
+        "app_undergrad": {
+          "id": "app_undergrad",
+          "message": "Undergraduate applications open 17 August and close 9 October.\n\nYou need a National Senior Certificate (or equivalent) meeting the admission points for your chosen qualification, and a non-refundable application fee.\n\nWould you like the document requirements?",
+          "quick_replies": [
+            {"label": "1. Yes, show documents", "value": "1"},
+            {"label": "2. No, I'm done", "value": "2"}
+          ],
+          "next": {
+            "1": "app_documents",
+            "2": "app_done"
+          },
+          "links": [
+            {"label": "Apply for admission", "url": "https://www.unisa.ac.za/sites/corporate/default/Apply-for-admission"}
+          ]
+        },
+        "app_honours": {
+          "id": "app_honours",
+          "message": "Honours / Postgraduate Diploma applications open 17 August and close 9 October.\n\nYou need a relevant completed bachelor's degree. Some qualifications have extra selection criteria and limited spaces. [VERIFY WITH UNISA]\n\nWould you like the document requirements?",
+          "quick_replies": [
+            {"label": "1. Yes, show documents", "value": "1"},
+            {"label": "2. No, I'm done", "value": "2"}
+          ],
+          "next": {
+            "1": "app_documents",
+            "2": "app_done"
+          },
+          "links": []
+        },
+        "app_masters": {
+          "id": "app_masters",
+          "message": "Master's & Doctoral applications open 1 September and close 20 November.\n\nYou need the relevant prior qualification, a research proposal where applicable, and in many cases a supervisor in the academic department. Contact the department early to discuss supervision capacity. [VERIFY WITH UNISA: department contacts]\n\nWould you like the document requirements?",
+          "quick_replies": [
+            {"label": "1. Yes, show documents", "value": "1"},
+            {"label": "2. No, I'm done", "value": "2"}
+          ],
+          "next": {
+            "1": "app_documents",
+            "2": "app_done"
+          },
+          "links": [
+            {"label": "Master's & doctoral degrees", "url": "https://www.unisa.ac.za/sites/corporate/default/Apply-for-admission/Master's-&-doctoral-degrees"}
+          ]
+        },
+        "app_documents": {
+          "id": "app_documents",
+          "message": "Documents to upload:\n\n• Certified copy of your ID or passport\n• Certified copy of your school-leaving certificate\n• Certified copies of tertiary qualifications and academic records\n• Sworn English translations where needed\n• SAQA evaluation for foreign qualifications\n• Marriage certificate or affidavit if your surname differs\n\nUpload rules: max 2MB per file, PDF/DOC/TIF only, one file per document.",
+          "quick_replies": [
+            {"label": "1. My file is too big", "value": "1"},
+            {"label": "2. I'm done", "value": "2"}
+          ],
+          "next": {
+            "1": "app_filesize",
+            "2": "app_done"
+          },
+          "links": []
+        },
+        "app_filesize": {
+          "id": "app_filesize",
+          "message": "Reducing file size:\n\n• Scan in black and white instead of colour\n• Scan at 200 dpi rather than 600 dpi\n• Save as PDF rather than a photo/image\n• Upload each document separately — never combine them\n\nThe limit is 2MB per file and only PDF, DOC or TIF are accepted.",
+          "quick_replies": [
+            {"label": "Main menu", "value": "menu"}
+          ],
+          "next": {},
+          "links": [],
+          "end": true
+        },
+        "app_done": {
+          "id": "app_done",
+          "message": "You're all set. Track your application on myUnisa and watch your myLife email for the outcome.",
+          "quick_replies": [
+            {"label": "Check application status", "value": "application status"},
+            {"label": "Main menu", "value": "menu"}
+          ],
+          "next": {},
+          "links": [],
+          "end": true
+        }
+      }
+    },
+
+    "registration_flow": {
+      "start": "reg_start",
+      "steps": {
+        "reg_start": {
+          "id": "reg_start",
+          "message": "Are you registering for the first time or re-registering?",
+          "quick_replies": [
+            {"label": "1. First time", "value": "1"},
+            {"label": "2. Re-registering", "value": "2"},
+            {"label": "3. Change my modules", "value": "3"}
+          ],
+          "next": {
+            "1": "reg_new",
+            "2": "reg_returning",
+            "3": "reg_change"
+          },
+          "links": []
+        },
+        "reg_new": {
+          "id": "reg_new",
+          "message": "First-time registration on myUnisa:\n\n1. Log in with your student number.\n2. Open 'Register' and accept the student rules.\n3. Confirm your personal and contact details.\n4. Select your qualification, then your modules.\n5. Check prerequisites and your credit limit.\n6. Review the fee quotation and submit.\n7. Pay the minimum initial payment — registration activates only once payment reflects.\n\nWant help choosing modules?",
+          "quick_replies": [
+            {"label": "1. Yes, module rules", "value": "1"},
+            {"label": "2. No, I'm done", "value": "2"}
+          ],
+          "next": {
+            "1": "reg_prereq",
+            "2": "reg_done"
+          },
+          "links": [
+            {"label": "Register on myUnisa", "url": "https://my.unisa.ac.za"}
+          ]
+        },
+        "reg_returning": {
+          "id": "reg_returning",
+          "message": "Re-registration:\n\n• You do not re-apply — just register again each year or semester.\n• Your account must have no outstanding balance, or registration is blocked.\n• Academic progression rules apply if you haven't passed enough modules. [VERIFY WITH UNISA]\n\nWant help choosing modules?",
+          "quick_replies": [
+            {"label": "1. Yes, module rules", "value": "1"},
+            {"label": "2. No, I'm done", "value": "2"}
+          ],
+          "next": {
+            "1": "reg_prereq",
+            "2": "reg_done"
+          },
+          "links": []
+        },
+        "reg_change": {
+          "id": "reg_change",
+          "message": "Do you want to add a module or cancel one?",
+          "quick_replies": [
+            {"label": "1. Add a module", "value": "1"},
+            {"label": "2. Cancel a module", "value": "2"}
+          ],
+          "next": {
+            "1": "reg_add",
+            "2": "reg_cancel"
+          },
+          "links": []
+        },
+        "reg_add": {
+          "id": "reg_add",
+          "message": "Adding a module:\n\n1. myUnisa → 'Register' → 'Amend registration'.\n2. Select the extra module; check prerequisites and your credit limit.\n3. Submit — a new fee quotation is generated.\n4. Pay the additional fee to activate the module.\n\nYou can only add while the registration period is open. [VERIFY WITH UNISA: current dates]",
+          "quick_replies": [
+            {"label": "Main menu", "value": "menu"}
+          ],
+          "next": {},
+          "links": [],
+          "end": true
+        },
+        "reg_cancel": {
+          "id": "reg_cancel",
+          "message": "Cancelling a module:\n\n1. myUnisa → 'Register' → 'Amend registration' → 'Cancel modules'.\n2. Select the module and submit, then save the confirmation.\n\nRefund: cancel within 10 calendar days of your registration being activated for a full refund. After that, cancellation fees apply on a sliding scale. [VERIFY WITH UNISA: current scale]",
+          "quick_replies": [
+            {"label": "Refund policy", "value": "refund policy"},
+            {"label": "Main menu", "value": "menu"}
+          ],
+          "next": {},
+          "links": [],
+          "end": true
+        },
+        "reg_prereq": {
+          "id": "reg_prereq",
+          "message": "Module rules:\n\n• A prerequisite must be passed before you register for the next module.\n• A co-requisite must be taken at the same time.\n• Check both in the UNISA online calendar under your qualification and module code.\n• If myUnisa blocks a module, an unmet prerequisite is the usual reason.",
+          "quick_replies": [
+            {"label": "Main menu", "value": "menu"}
+          ],
+          "next": {},
+          "links": [
+            {"label": "UNISA calendars", "url": "https://www.unisa.ac.za/sites/corporate/default/Register-to-study-through-Unisa"}
+          ],
+          "end": true
+        },
+        "reg_done": {
+          "id": "reg_done",
+          "message": "Good luck with the semester! Keep your proof of registration safe.",
+          "quick_replies": [
+            {"label": "Main menu", "value": "menu"}
+          ],
+          "next": {},
+          "links": [],
+          "end": true
+        }
+      }
+    },
+
+    "document_upload_flow": {
+      "start": "doc_start",
+      "steps": {
+        "doc_start": {
+          "id": "doc_start",
+          "message": "Which document are you uploading?",
+          "quick_replies": [
+            {"label": "1. ID or passport", "value": "1"},
+            {"label": "2. School certificate", "value": "2"},
+            {"label": "3. Tertiary record", "value": "3"},
+            {"label": "4. Foreign qualification", "value": "4"}
+          ],
+          "next": {
+            "1": "doc_id",
+            "2": "doc_school",
+            "3": "doc_tertiary",
+            "4": "doc_foreign"
+          },
+          "links": []
+        },
+        "doc_id": {
+          "id": "doc_id",
+          "message": "ID / passport:\n\n• South African applicants: certified copy of your ID card (both sides) or ID book.\n• Non-SA applicants: certified copy of your passport photo page.\n• Certification must be recent. [VERIFY WITH UNISA: validity period]\n\nReady to check the file format?",
+          "quick_replies": [
+            {"label": "1. Yes", "value": "1"},
+            {"label": "2. No, I'm done", "value": "2"}
+          ],
+          "next": {"1": "doc_format", "2": "doc_done"},
+          "links": []
+        },
+        "doc_school": {
+          "id": "doc_school",
+          "message": "School-leaving certificate:\n\n• Certified copy of your National Senior Certificate or equivalent.\n• If your results are still pending, upload your latest official statement of results.\n• Non-SA school certificates need a SAQA evaluation.\n\nReady to check the file format?",
+          "quick_replies": [
+            {"label": "1. Yes", "value": "1"},
+            {"label": "2. No, I'm done", "value": "2"}
+          ],
+          "next": {"1": "doc_format", "2": "doc_done"},
+          "links": []
+        },
+        "doc_tertiary": {
+          "id": "doc_tertiary",
+          "message": "Tertiary qualifications:\n\n• Certified copies of certificates for every completed qualification.\n• Full official academic records/transcripts, including incomplete studies.\n• If you studied at UNISA, you usually do not need to upload these.\n\nReady to check the file format?",
+          "quick_replies": [
+            {"label": "1. Yes", "value": "1"},
+            {"label": "2. No, I'm done", "value": "2"}
+          ],
+          "next": {"1": "doc_format", "2": "doc_done"},
+          "links": []
+        },
+        "doc_foreign": {
+          "id": "doc_foreign",
+          "message": "Foreign qualification:\n\n• Upload the SAQA Certificate of Evaluation together with the original qualification.\n• Documents not in English need a sworn translation.\n• Apply to SAQA early — evaluation takes time and has its own fee.\n\nReady to check the file format?",
+          "quick_replies": [
+            {"label": "1. Yes", "value": "1"},
+            {"label": "2. No, I'm done", "value": "2"}
+          ],
+          "next": {"1": "doc_format", "2": "doc_done"},
+          "links": [
+            {"label": "SAQA", "url": "https://www.saqa.org.za"}
+          ]
+        },
+        "doc_format": {
+          "id": "doc_format",
+          "message": "Format check:\n\n• Max 2MB per file\n• PDF, DOC or TIF only\n• One file per document\n• Clear file names, e.g. 'ID_copy.pdf'\n\nIs your file within 2MB?",
+          "quick_replies": [
+            {"label": "1. Yes", "value": "1"},
+            {"label": "2. No, it's too big", "value": "2"}
+          ],
+          "next": {"1": "doc_upload", "2": "doc_shrink"},
+          "links": []
+        },
+        "doc_shrink": {
+          "id": "doc_shrink",
+          "message": "Shrink the file:\n\n• Scan in black and white\n• Scan at 200 dpi instead of 600 dpi\n• Save as PDF rather than a photo\n• Never merge several documents into one file\n\nThen upload again.",
+          "quick_replies": [
+            {"label": "Main menu", "value": "menu"}
+          ],
+          "next": {},
+          "links": [],
+          "end": true
+        },
+        "doc_upload": {
+          "id": "doc_upload",
+          "message": "Uploading:\n\n1. Log in to myUnisa.\n2. Open your application and go to the document upload section.\n3. Choose the document type, then select your file.\n4. Upload and wait for the confirmation message.\n5. Repeat for each document, one file at a time.\n6. Check that every document shows as 'received' before you close the application.",
+          "quick_replies": [
+            {"label": "Main menu", "value": "menu"}
+          ],
+          "next": {},
+          "links": [
+            {"label": "myUnisa portal", "url": "https://my.unisa.ac.za"}
+          ],
+          "end": true
+        },
+        "doc_done": {
+          "id": "doc_done",
+          "message": "No problem. Remember: max 2MB per file, PDF/DOC/TIF only, one file per document.",
+          "quick_replies": [
+            {"label": "Main menu", "value": "menu"}
+          ],
+          "next": {},
+          "links": [],
+          "end": true
+        }
+      }
+    },
+
+    "contact_flow": {
+      "start": "contact_start",
+      "steps": {
+        "contact_start": {
+          "id": "contact_start",
+          "message": "Which department do you need to reach?",
+          "quick_replies": [
+            {"label": "1. Admissions", "value": "1"},
+            {"label": "2. Fees / accounts", "value": "2"},
+            {"label": "3. ICT support", "value": "3"},
+            {"label": "4. Regional office", "value": "4"}
+          ],
+          "next": {
+            "1": "contact_adm",
+            "2": "contact_fin",
+            "3": "contact_it",
+            "4": "contact_reg"
+          },
+          "links": []
+        },
+        "contact_adm": {
+          "id": "contact_adm",
+          "message": "Admissions & applications:\n\n• Toll-free: 0800 00 1870\n• WhatsApp: +27 12 431 2500\n• Email: study-info@unisa.ac.za [VERIFY WITH UNISA]\n\nQuote your student number and ID number.",
+          "quick_replies": [{"label": "Main menu", "value": "menu"}],
+          "next": {},
+          "links": [
+            {"label": "UNISA contact us", "url": "https://www.unisa.ac.za/sites/corporate/default/Contact-us"}
+          ],
+          "end": true
+        },
+        "contact_fin": {
+          "id": "contact_fin",
+          "message": "Fees & student accounts:\n\n• Toll-free: 0800 00 1870\n• WhatsApp: +27 12 431 2500\n• Email: finan@unisa.ac.za [VERIFY WITH UNISA]\n\nAttach proof of payment and quote your student number.",
+          "quick_replies": [{"label": "Main menu", "value": "menu"}],
+          "next": {},
+          "links": [
+            {"label": "UNISA contact us", "url": "https://www.unisa.ac.za/sites/corporate/default/Contact-us"}
+          ],
+          "end": true
+        },
+        "contact_it": {
+          "id": "contact_it",
+          "message": "ICT / technical support:\n\n• Toll-free: 0800 00 1870\n• myUnisa: myUnisaHelp@unisa.ac.za [VERIFY WITH UNISA]\n• myLife: myLifeHelp@unisa.ac.za [VERIFY WITH UNISA]\n\nInclude the exact error message and a screenshot.",
+          "quick_replies": [{"label": "Main menu", "value": "menu"}],
+          "next": {},
+          "links": [],
+          "end": true
+        },
+        "contact_reg": {
+          "id": "contact_reg",
+          "message": "Regional offices:\n\nUse the locator to find the office nearest to you, with its address, phone number and walk-in hours. Take your ID and student number along. [VERIFY WITH UNISA: opening hours]",
+          "quick_replies": [{"label": "Main menu", "value": "menu"}],
+          "next": {},
+          "links": [
+            {"label": "Regional office locator", "url": "https://www.unisa.ac.za/sites/corporate/default/Contact-us/Regional-offices"}
+          ],
+          "end": true
+        }
+      }
+    }
+  }
+}

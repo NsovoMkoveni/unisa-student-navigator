@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UNISA Study Assistant</title>
+  <meta name="description" content="Rule-based assistant for UNISA logins, applications, registration, fees and contacts." />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="chat-shell">
+    <header class="chat-header">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">U</div>
+        <div>
+          <h1>UNISA Study Assistant</h1>
+          <p class="brand-sub">Logins • Applications • Registration • Fees</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button type="button" id="menu-btn" class="header-btn">Menu</button>
+        <button type="button" id="restart-btn" class="header-btn">Restart</button>
+      </div>
+    </header>
+
+    <main id="messages" class="messages" aria-live="polite" aria-label="Conversation"></main>
+
+    <div id="typing" class="typing" hidden>Bot is typing...</div>
+
+    <form id="composer" class="composer" autocomplete="off">
+      <label class="sr-only" for="input">Type your question</label>
+      <input id="input" class="composer-input" type="text" maxlength="500"
+             placeholder="Ask about logins, applications, fees..." />
+      <button type="submit" id="send-btn" class="send-btn">Send</button>
+    </form>
+
+    <footer class="chat-footer">
+      Unofficial helper. Confirm details with UNISA on 0800 00 1870.
+    </footer>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
