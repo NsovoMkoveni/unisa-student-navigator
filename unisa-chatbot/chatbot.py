@@ -41,7 +41,7 @@ STOP_WORDS = {
     "a", "an", "the", "is", "are", "am", "do", "does", "did", "i", "my", "me",
     "you", "your", "to", "for", "of", "on", "in", "at", "and", "or", "it",
     "can", "please", "how", "what", "where", "when", "who", "why", "with",
-    "this", "that", "be", "have", "has", "get", "want", "need", "hi",
+    "this", "that", "be", "have", "has", "get", "want", "need",
 }
 
 _FILE_LOCK = threading.Lock()
@@ -295,15 +295,18 @@ class Chatbot:
                 words = variant.split(" ")
                 if len(words) > 1:
                     if variant in text:
+                        # Exact phrase, e.g. "reset password".
                         score += 3 * len(words)
+                    elif all(word in tokens for word in words):
+                        # Same words, different order or separated by filler,
+                        # e.g. "how do i reset my password".
+                        score += 2 * len(words)
                     continue
                 if variant in tokens:
                     score += 2
                     continue
                 for token in tokens:
-                    if len(variant) >= 5 and (
-                        token.startswith(variant) or variant.startswith(token) and len(token) >= 5
-                    ):
+                    if len(variant) >= 5 and token.startswith(variant):
                         score += 1
                         break
         return score
