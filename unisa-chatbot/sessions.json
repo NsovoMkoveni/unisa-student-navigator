@@ -3,5 +3,85 @@
     "current_flow": null,
     "current_step": null,
     "timestamp": "2026-09-14T06:50:52.413777+00:00"
+  },
+  "aac7f11ff4d9446d": {
+    "current_flow": null,
+    "current_step": null,
+    "timestamp": "2026-09-14T06:51:20.724060+00:00"
+  },
+  "53fd2bcab1f44bc3": {
+    "current_flow": null,
+    "current_step": null,
+    "timestamp": "2026-09-14T06:51:20.756189+00:00"
+  },
+  "9f9bda6e639b4e68": {
+    "current_flow": null,
+    "current_step": null,
+    "timestamp": "2026-09-14T06:51:20.783512+00:00"
+  },
+  "bbf5b583779b4872": {
+    "current_flow": "login_flow",
+    "current_step": "login_start",
+    "timestamp": "2026-09-14T06:51:20.814950+00:00"
+  },
+  "c64f1c204951457f": {
+    "current_flow": "application_flow",
+    "current_step": "app_start",
+    "timestamp": "2026-09-14T06:51:20.849329+00:00"
+  },
+  "da522574dafe4183": {
+    "current_flow": "document_upload_flow",
+    "current_step": "doc_start",
+    "timestamp": "2026-09-14T06:51:20.883272+00:00"
+  },
+  "a5d5a602bc3a4350": {
+    "current_flow": null,
+    "current_step": null,
+    "timestamp": "2026-09-14T06:51:20.914748+00:00"
+  },
+  "f4ddee40ee0c4770": {
+    "current_flow": null,
+    "current_step": null,
+    "timestamp": "2026-09-14T06:51:20.943970+00:00"
+  },
+  "c07b1e033efa4f69": {
+    "current_flow": null,
+    "current_step": null,
+    "timestamp": "2026-09-14T06:51:20.972385+00:00"
+  },
+  "1da5630613a3411c": {
+    "current_flow": null,
+    "current_step": null,
+    "timestamp": "2026-09-14T06:51:21.005928+00:00"
+  },
+  "55c925d95b624659": {
+    "current_flow": null,
+    "current_step": null,
+    "timestamp": "2026-09-14T06:51:21.034604+00:00"
+  },
+  "12e520fc6fd440a7": {
+    "current_flow": null,
+    "current_step": null,
+    "timestamp": "2026-09-14T06:51:21.068803+00:00"
+  },
+  "700c818d9c4e4aeb": {
+    "current_flow": null,
+    "current_step": null,
+    "timestamp": "2026-09-14T06:51:21.097181+00:00"
+  },
+  "a3b70a54eb574cb0": {
+    "current_flow": null,
+    "current_step": null,
+    "timestamp": "2026-09-14T06:51:21.121369+00:00"
+  },
+  "44c17867da5a458a": {
+    "current_flow": null,
+    "current_step": null,
+    "timestamp": "2026-09-14T06:51:21.149155+00:00"
+  },
+  "4eb8ee45bc944f69": {
+    "current_flow": null,
+    "current_step": null,
+    "timestamp": "2026-09-14T06:51:21.237005+00:00"
   }
 }
