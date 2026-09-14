@@ -295,7 +295,12 @@ class Chatbot:
                 words = variant.split(" ")
                 if len(words) > 1:
                     if variant in text:
+                        # Exact phrase, e.g. "reset password".
                         score += 3 * len(words)
+                    elif all(word in tokens for word in words):
+                        # Same words, different order or separated by filler,
+                        # e.g. "how do i reset my password".
+                        score += 2 * len(words)
                     continue
                 if variant in tokens:
                     score += 2
