@@ -306,9 +306,7 @@ class Chatbot:
                     score += 2
                     continue
                 for token in tokens:
-                    if len(variant) >= 5 and (
-                        token.startswith(variant) or variant.startswith(token) and len(token) >= 5
-                    ):
+                    if len(variant) >= 5 and token.startswith(variant):
                         score += 1
                         break
         return score

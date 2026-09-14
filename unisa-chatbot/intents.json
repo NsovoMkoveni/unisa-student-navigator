@@ -67,7 +67,7 @@
 
     {
       "id": "login_help",
-      "keywords": ["login", "log in", "logging in", "log-in", "signin", "sign in", "cant login", "can't log in", "myunisa login", "account", "my account", "access myunisa", "unisa login", "portal"],
+      "keywords": ["login help", "login", "log in", "logging in", "log-in", "signin", "sign in", "cant login", "can't log in", "myunisa login", "account", "my account", "access myunisa", "unisa login", "portal"],
       "response": {
         "message": "Login & accounts. Which one describes you?",
         "quick_replies": [
@@ -425,7 +425,7 @@
     },
     {
       "id": "nsfas_info",
-      "keywords": ["nsfas", "bursary", "funding application", "financial aid", "student loan", "sponsor", "free education", "nsfas application", "funding help", "cant afford"],
+      "keywords": ["nsfas funding", "nsfas", "bursary", "funding application", "financial aid", "student loan", "sponsor", "free education", "nsfas application", "funding help", "cant afford"],
       "response": {
         "message": "NSFAS funding basics:\n\n• NSFAS funds South African citizens studying an approved qualification who meet the household income threshold.\n• You apply directly to NSFAS on the myNSFAS portal, not through UNISA.\n• Applications open and close on NSFAS's own dates, separate from UNISA's application dates. [VERIFY WITH NSFAS: current application window and income threshold]\n• You need your ID, your parents'/guardians' IDs and proof of household income.\n• Track your funding decision on myNSFAS; UNISA is notified once you are confirmed as funded.\n• UNISA also offers other bursaries — check the funding pages.",
         "quick_replies": [
