@@ -41,7 +41,7 @@ STOP_WORDS = {
     "a", "an", "the", "is", "are", "am", "do", "does", "did", "i", "my", "me",
     "you", "your", "to", "for", "of", "on", "in", "at", "and", "or", "it",
     "can", "please", "how", "what", "where", "when", "who", "why", "with",
-    "this", "that", "be", "have", "has", "get", "want", "need", "hi",
+    "this", "that", "be", "have", "has", "get", "want", "need",
 }
 
 _FILE_LOCK = threading.Lock()
